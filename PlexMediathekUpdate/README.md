@@ -1,6 +1,5 @@
 # Plex Mediathek Update
-Das Plex Mediathek Update ließt die Plex Mediatheken aus und speichert diese in einer HMLT Box. 
-Mit dem Aktualisierungsbutton kann man dann die entsprechenden Mediatheken einlesen.
+Das Plex Mediathek Update ließt die Plex Mediatheken aus und speichert diese in einer HTML Box. Mit dem Aktualisierungsbutton kann man dann das Einlesen von neuem Content der entsprechenden Mediatheken starten.
 
 ### Inhaltsverzeichnis
 
