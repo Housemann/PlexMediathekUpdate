@@ -1,0 +1,23 @@
+{
+    "translations": {
+        "de": { 
+            "Plex IP-Adress": "Plex IP-Adresse",
+            "UpdateTimer": "Aktualisierungsintervall",
+            "Minutes": "Minuten",
+            "Update successed": "Update erfolgreich",
+            "Port is not numeric": "Port ist nicht numerisch",
+            "Port is larger then five digits": "Port hat mehr als fünf Ziffern",
+            "Port is lager den maximal port number": "Port ist länger als erlaubt",
+            "No IPV4 Ip-Adress": "Keine gültige IPV4 Adresse",
+            "Host not aviable": "Host ist nicht erreichbar",
+            "Update": "Aktualisieren",
+            "Update Button Color":  "Farbe Aktualisierungsbutton",
+            "Green": "Grün",
+            "Orange": "Orange",
+            "Yellow": "Gelb",
+            "Red": "Rot",
+            "Blue": "Blau",
+            "URL is not reachable": "URL ist nicht erreichbar"
+        }
+    }
+}

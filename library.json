@@ -1,0 +1,12 @@
+{
+  "id": "{3EC3E9F3-447B-0B24-5934-87C608DDF3D2}",
+  "author": "Oliver Vogt",
+  "name": "PlexMediathekUpdate",
+  "url": "https://github.com/Housemann",
+  "compatibility": {
+      "version": "5.5"
+  },
+  "version": "1.0",
+  "build": 0,
+  "date": 0
+}

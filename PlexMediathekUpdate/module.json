@@ -1,0 +1,15 @@
+{
+  "id": "{FB06781B-C3A3-359F-CD33-253FD0A80ADD}",
+  "name": "PlexMediathekUpdate",
+  "type": 3,
+  "vendor": "",
+  "aliases":
+  [
+      "Plex Mediathek Update"
+  ],
+  "url": "https://github.com/Housemann",
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "PLEX"
+}
