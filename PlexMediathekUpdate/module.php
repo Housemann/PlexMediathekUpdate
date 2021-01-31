@@ -29,7 +29,7 @@
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
 
-            $this->SetTimerInterval("Update", $this->ReadPropertyInteger("UpdateIntervall") * 60 * 1000);
+            $this->SetTimerInterval("Update", $this->ReadPropertyInteger("UpdateIntervall") * 1000);
 
             // check IP && Port
             $ip   = $this->ReadPropertyString("IPAddress");
@@ -92,7 +92,7 @@
         // Check Host available
         public function PingHost(string $ip) {
           $rc=1;
-          if(Sys_Ping($ip, 1000)==0) {
+          if(Sys_Ping($ip, 5000)==0) {
             $rc=-32;
           }
           return $rc;
