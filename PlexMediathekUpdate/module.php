@@ -183,11 +183,11 @@
 
               $s = $s . '<tr>'; 
               $s = $s . "<tr>"; 
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>Bibliothek</td>";
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>Bibliotheks Typ</td>";
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>Bibliotheks ID</td>"; 
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>Letztes Update</td>";
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>Aktualisieren</td>";
+              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek")."</td>";
+              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek Type")."</td>";
+              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek ID")."</td>"; 
+              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Last Update")."</td>";
+              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Update Mediathek")."</td>";
               $s = $s . "</tr>"; 
               $s = $s . "<tr>"; 
 

@@ -17,7 +17,12 @@
             "Yellow": "Gelb",
             "Red": "Rot",
             "Blue": "Blau",
-            "URL is not reachable": "URL ist nicht erreichbar"
+            "URL is not reachable": "URL ist nicht erreichbar",
+            "Bibliothek": "Bibliothek",
+            "Bibliothek Type": "Bibliotheks Typ",
+            "Bibliothek ID": "Bibliotheks ID", 
+            "Last Update": "Letzte Aktualisierung",
+            "Update Mediathek": "Aktualisierung Mediathek"
         }
     }
 }
