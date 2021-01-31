@@ -29,7 +29,7 @@
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
 
-            $this->SetTimerInterval("Update", $this->ReadPropertyInteger("UpdateIntervall") * 1000);
+            $this->SetTimerInterval("Update", $this->ReadPropertyInteger("UpdateIntervall") * 60 * 1000);
 
             // check IP && Port
             $ip   = $this->ReadPropertyString("IPAddress");
