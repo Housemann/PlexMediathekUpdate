@@ -22,7 +22,19 @@
             "Bibliothek Type": "Bibliotheks Typ",
             "Bibliothek ID": "Bibliotheks ID", 
             "Last Update": "Letzte Aktualisierung",
-            "Update Mediathek": "Aktualisierung Mediathek"
+            "Update Mediathek": "Aktualisierung Mediathek",
+            "Border Style": "Rahmentyp",
+            "Border Width": "Rahemstärke",
+            "Boarder Color": "Rahmenfarbe",
+            "Color Header": "Hintergrundfarbe Tabellenkopf",
+            "Font Size Header": "Schriftgröße Tabellenkopf",
+            "Font Color Header": "Schriftfarbe Tabellenkopf",
+            "Color Table": "Hintergrundfarbe Tabelle",
+            "Font Size Table": "Schriftgröße Tabelle",
+            "Font Color Table": "Schriftfarbe Tabelle",
+            "Update Button Font Color": "Schriftfarbe Aktualisierungsbutton"
+
+
         }
     }
 }

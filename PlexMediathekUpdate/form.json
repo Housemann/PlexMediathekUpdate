@@ -16,18 +16,88 @@
             "caption": "UpdateTimer",
             "suffix": "Minutes"
         },
+        {
+            "type": "Label"
+        },
+        { 
+            "type": "SelectColor",
+            "name": "UpdateButtonFontColor",
+            "caption": "Update Button Font Color"
+        },
+        { 
+            "type": "SelectColor",
+            "name": "UpdateButtonColor",
+            "caption": "Update Button Color"
+        },
+        {
+            "type": "Label"
+        },
+        {   
+            "type": "SelectColor", 
+            "name": "ColorHeader", 
+            "caption": "Color Header" 
+        },
+        {   
+            "type": "NumberSpinner", 
+            "name": "FontSizeHeader", 
+            "caption": "Font Size Header",
+            "suffix": "Pixel"
+        },
+        {   
+            "type": "SelectColor", 
+            "name": "FontColorHeader", 
+            "caption": "Font Color Header" 
+        },
+        {
+            "type": "Label"
+        },
+        {   
+            "type": "SelectColor", 
+            "name": "ColorTable", 
+            "caption": "Color Table" 
+        },
+        {   
+            "type": "NumberSpinner", 
+            "name": "FontSizeTable", 
+            "caption": "Font Size Table",
+            "suffix": "Pixel"
+        },
+        {   
+            "type": "SelectColor", 
+            "name": "FontColorTable", 
+            "caption": "Font Color Table"
+        },
+        {
+            "type": "Label"
+        },
+        {   
+            "type": "SelectColor", 
+            "name": "BoarderColor", 
+            "caption": "Boarder Color" 
+        },      
         { 
             "type": "Select",
-            "name": "UpdateButtonColor",
-            "caption": "Update Button Color",
+            "name": "BorderStyle",
+            "caption": "Border Style",
             "options": [
-                { "caption": "Green", "value": "bc_green" },
-                { "caption": "Blue", "value": "bc_blue" },
-                { "caption": "Red", "value": "bc_red" },
-                { "caption": "Yellow", "value": "bc_yellow" },
-                { "caption": "Orange", "value": "bc_orange" }
+                { "caption": "Outset", "value": "outset" },
+                { "caption": "None", "value": "none" },
+                { "caption": "Hidden", "value": "hidden" },
+                { "caption": "Inset", "value": "inset" },
+                { "caption": "Ridge", "value": "ridge" },
+                { "caption": "Double", "value": "double" },
+                { "caption": "Groove", "value": "groove" },
+                { "caption": "Solid", "value": "solid" },
+                { "caption": "Dashed", "value": "dashed" },
+                { "caption": "Dotted", "value": "dotted" }
             ]
-        }
+            },
+            {   
+              "type": "NumberSpinner", 
+              "name": "BorderWidth", 
+              "caption": "Border Width",
+              "suffix": "Pixel"
+            }
     ],
     "actions": [
 

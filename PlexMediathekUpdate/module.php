@@ -15,7 +15,20 @@
             $this->RegisterPropertyInteger ("UpdateIntervall", 60);
             $this->RegisterPropertyString ("IPAddress", "2.2.2.2");
             $this->RegisterPropertyString ("Port", "32400");
-            $this->RegisterPropertyString ("UpdateButtonColor", "bc_green");
+            
+            $this->RegisterPropertyInteger ("UpdateButtonColor", -1);
+            $this->RegisterPropertyInteger ("UpdateButtonFontColor", -1);
+
+            $this->RegisterPropertyInteger ("ColorHeader", -1);
+            $this->RegisterPropertyInteger ("FontColorHeader", -1);
+            $this->RegisterPropertyInteger ("FontSizeHeader", 16);
+            $this->RegisterPropertyInteger ("ColorTable", -1);
+            $this->RegisterPropertyInteger ("FontSizeTable", 14);
+            $this->RegisterPropertyInteger ("FontColorTable", -1);
+
+            $this->RegisterPropertyInteger ("BoarderColor", -1);
+            $this->RegisterPropertyString ("BorderStyle", "outset");
+            $this->RegisterPropertyInteger ("BorderWidth", 1);
         }
 
         public function Destroy()
@@ -134,6 +147,25 @@
         public function FillHtmlBox() {
           $ip   = $this->ReadPropertyString("IPAddress");
           $port = $this->ReadPropertyString("Port");
+
+          // Propertys lesen und Farbe umwandeln in HEX
+          $color_header       = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("ColorHeader")));
+          $font_size_header 	= $this->ReadPropertyInteger ("FontSizeHeader")."px";
+          $font_color_header  = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("FontColorHeader")));
+
+          $color_table        = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("ColorTable")));
+          $font_size_table 	= $this->ReadPropertyInteger ("FontSizeTable")."px";
+          $font_color_table   = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("FontColorTable")));
+
+          $border_style       = $this->ReadPropertyString ("BorderStyle"); // dotted,dashed,solid,double,groove,ridge,inset,outset,none,hidden
+          $border_width       = $this->ReadPropertyInteger ("BorderWidth")."px";
+          $boarder_color      = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("BoarderColor")));
+
+          $button_color       = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("UpdateButtonColor")));
+          $button_font_color  = str_replace("0x","#",$this->IntToHex($this->ReadPropertyInteger ("UpdateButtonFontColor")));
+
+
+
                
           $url  = 'http://'.$ip.':'.$port.'/library/sections';
           
@@ -159,20 +191,14 @@
               
               // HTML Tabelle füllen
               $count_array_librarys = count($array_librarys);
-              $font_size_header = "";
-              $font_size_table = "";
 
               // Etwas CSS und HTML
               $style = "";
               $style = $style.'<style type="text/css">';
               $style = $style.'table.test { width: 100%; border-collapse: true;}';
               $style = $style.'Test { border: 2px solid #444455; }';
-              $style = $style.'td.lst { width: 42px; text-align:center; padding: 2px;  border-right: 0px solid rgba(255, 255, 255, 0.2); border-top: 0px solid rgba(255, 255, 255, 0.1); }';
-              $style = $style.'.bc_blue { padding: 5px; color: rgb(255, 255, 255); background-color: rgb(0, 0, 255); background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }';
-              $style = $style.'.bc_red { padding: 5px; color: rgb(255, 255, 255); background-color: rgb(255, 0, 0); background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }';
-              $style = $style.'.bc_green { padding: 5px; color: rgb(255, 255, 255); background-color: rgb(0, 255, 0); background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }';
-              $style = $style.'.bc_yellow { padding: 5px; color: rgb(255, 255, 255); background-color: rgb(255, 255, 0); background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }';
-              $style = $style.'.bc_orange { padding: 5px; color: rgb(255, 255, 255); background-color: rgb(255, 160, 0); background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }';
+              $style = $style.'td.lst { width: 43px; text-align:center; padding: 5px;'." border-color: $boarder_color; border-width: $border_width; border-style: $border_style;".'}';
+              $style = $style.".bc_button { padding: 5px; color: $button_font_color; background-color: $button_color; background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }";
               $style = $style.'</style>';
 
               $s = '';	
@@ -183,11 +209,13 @@
 
               $s = $s . '<tr>'; 
               $s = $s . "<tr>"; 
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek")."</td>";
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek Type")."</td>";
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek ID")."</td>"; 
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Last Update")."</td>";
-              $s = $s . "<td style='background: #121212;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Update Mediathek")."</td>";
+
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek")."</td>";
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek Type")."</td>";
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek ID")."</td>"; 
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Last Update")."</td>";
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Update Mediathek")."</td>";
+
               $s = $s . "</tr>"; 
               $s = $s . "<tr>"; 
 
@@ -199,15 +227,15 @@
                 $key    = $newArray['key'];
                 $upd    = $newArray['scannedAt'];
 
-                $class  = $this->ReadPropertyString("UpdateButtonColor");
+                #$class  = $this->ReadPropertyString("UpdateButtonColor");
                 $toggle = $this->Translate('Update');
 
                 $s = $s . "<tr>"; 
-                $s = $s . "<td style='text-align:left;font-size:$font_size_table;' colspan='2'>$title</td>";
-                $s = $s . "<td style='text-align:left;font-size:$font_size_table;' colspan='2'>$type</td>";
-                $s = $s . "<td style='text-align:left;font-size:$font_size_table;' colspan='2'>$key</td>";
-                $s = $s . "<td style='text-align:left;font-size:$font_size_table;' colspan='2'>$upd</td>";
-                $s = $s . '<td style=\'border-bottom:0.0px outset;border-top:0.0px outset\' class=\'lst\'><div class =\''.$class.'\' onclick="window.xhrGet=function xhrGet(o) {var HTTP = new XMLHttpRequest();HTTP.open(\'GET\',o.url,true);HTTP.send();};window.xhrGet({ url: \'http://'.$ip.':'.$port.'/library/sections/'.$key.'/refresh?force=1\' });">'.$toggle.'</div></td>';	
+                $s = $s . "<td style='text-align:left;border-color: $boarder_color; color: $font_color_table; border-width: $border_width; border-style: $border_style;background: $color_table; font-size:$font_size_table;' colspan='2'>$title</td>";
+                $s = $s . "<td style='text-align:left;border-color: $boarder_color; color: $font_color_table; border-width: $border_width; border-style: $border_style;background: $color_table; font-size:$font_size_table;' colspan='2'>$type</td>";
+                $s = $s . "<td style='text-align:left;border-color: $boarder_color; color: $font_color_table; border-width: $border_width; border-style: $border_style;background: $color_table; font-size:$font_size_table;' colspan='2'>$key</td>";
+                $s = $s . "<td style='text-align:left;border-color: $boarder_color; color: $font_color_table; border-width: $border_width; border-style: $border_style;background: $color_table; font-size:$font_size_table;' colspan='2'>$upd</td>";
+                $s = $s . '<td style='."border-color: $boarder_color; color: $font_color_table; border-width: $border_width;border-style: $border_style;".' outset\' class=\'lst\'><div class =\'bc_button \' onclick="window.xhrGet=function xhrGet(o) {var HTTP = new XMLHttpRequest();HTTP.open(\'GET\',o.url,true);HTTP.send();};window.xhrGet({ url: \'http://'.$ip.':'.$port.'/library/sections/'.$key.'/refresh?force=1\' });">'.$toggle.'</div></td>';	
                 $s = $s . "</tr>"; 
                 $s = $s . "<tr>"; 	
               }          
@@ -217,6 +245,11 @@
             $rc_url = -42;
             $this->LogMessage($this->ReturnMessage($rc_url), KL_ERROR);
           }
+        }
+
+        private function IntToHex (int $value) {
+          $HEX = sprintf('0x%06X',$value);
+          return $HEX;
         }
     }
 
