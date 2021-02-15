@@ -16,17 +16,17 @@
             $this->RegisterPropertyString ("IPAddress", "2.2.2.2");
             $this->RegisterPropertyString ("Port", "32400");
             
-            $this->RegisterPropertyInteger ("UpdateButtonColor", -1);
-            $this->RegisterPropertyInteger ("UpdateButtonFontColor", -1);
+            $this->RegisterPropertyInteger ("UpdateButtonColor", 6618980);
+            $this->RegisterPropertyInteger ("UpdateButtonFontColor", 16777215);
 
-            $this->RegisterPropertyInteger ("ColorHeader", -1);
-            $this->RegisterPropertyInteger ("FontColorHeader", -1);
+            $this->RegisterPropertyInteger ("ColorHeader", 2368548);
+            $this->RegisterPropertyInteger ("FontColorHeader", 16777215);
             $this->RegisterPropertyInteger ("FontSizeHeader", 16);
-            $this->RegisterPropertyInteger ("ColorTable", -1);
+            $this->RegisterPropertyInteger ("ColorTable", 2368548);
             $this->RegisterPropertyInteger ("FontSizeTable", 14);
-            $this->RegisterPropertyInteger ("FontColorTable", -1);
+            $this->RegisterPropertyInteger ("FontColorTable", 16777215);
 
-            $this->RegisterPropertyInteger ("BoarderColor", -1);
+            $this->RegisterPropertyInteger ("BoarderColor", 16777215);
             $this->RegisterPropertyString ("BorderStyle", "outset");
             $this->RegisterPropertyInteger ("BorderWidth", 1);
         }
@@ -198,7 +198,7 @@
               $style = $style.'table.test { width: 100%; border-collapse: true;}';
               $style = $style.'Test { border: 2px solid #444455; }';
               $style = $style.'td.lst { width: 43px; text-align:center; padding: 5px;'." border-color: $boarder_color; border-width: $border_width; border-style: $border_style;".'}';
-              $style = $style.".bc_button { padding: 5px; color: $button_font_color; background-color: $button_color; background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }";
+              $style = $style.".bc_button { padding: 5px; font-size:$font_size_table; color: $button_font_color; background-color: $button_color; background-icon: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-icon: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); background-image: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.3) 100%); }";
               $style = $style.'</style>';
 
               $s = '';	
@@ -210,11 +210,11 @@
               $s = $s . '<tr>'; 
               $s = $s . "<tr>"; 
 
-              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek")."</td>";
-              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek Type")."</td>";
-              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Bibliothek ID")."</td>"; 
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Mediathek")."</td>";
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Mediathek Type")."</td>";
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Mediathek ID")."</td>"; 
               $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Last Update")."</td>";
-              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Update Mediathek")."</td>";
+              $s = $s . "<th style='border-color: $boarder_color; color: $font_color_header; border-width: $border_width; border-style: $border_style; background: $color_header;font-size:$font_size_header;' colspan='2'><B>".$this->Translate("Update")."</td>";
 
               $s = $s . "</tr>"; 
               $s = $s . "<tr>"; 
